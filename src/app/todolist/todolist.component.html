@@ -1,0 +1,33 @@
+<div>
+    <button class="btn btn-primary" (click)="logout()">Logout</button>
+</div>
+<div class="alert alert-danger" *ngIf="duplicate_delete==true">Alrady deleted</div>
+<div class="set">
+    <form>
+        <div class="form-group">
+          <label for="formGroupExampleInput">Example label</label>
+          <input ngModel name="data" #data="ngModel"   type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+          <button class="btn btn-success" (click)="add(data)">Add</button>
+        </div>
+     
+      </form>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            
+            <th scope="col">Name</th>
+            <th scope="col">Delete</th>
+          
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of list">
+            
+            <td>{{item.name}}</td>
+            <td><button class="btn btn-danger"  (click)="remove(item)">Delete</button></td>
+            
+          </tr>
+         
+        </tbody>
+      </table>
+</div>

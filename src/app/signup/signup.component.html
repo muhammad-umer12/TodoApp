@@ -1,0 +1,43 @@
+
+
+<div class="form-align">
+    <div class="jumbotron ">
+
+   
+<form  [formGroup]="form" (ngSubmit)="register()">
+    <div class="form-group">
+    <h3>Sign Up</h3>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input  formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <div *ngIf="myForm.email.touched && myForm.email.invalid">
+        <small *ngIf="myForm.email.errors?.required" id="emailHelp" class="form-text text-danger">Email is required</small>
+        <small *ngIf="myForm.email.errors?.email" id="emailHelp" class="form-text text-danger">Invalid format</small>
+      </div>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputName">Name</label>
+        <input formControlName="name" type="name" class="form-control" id="exampleInputname" aria-describedby="emailHelp" placeholder="Enter email">
+        <div *ngIf="myForm.name.touched && myForm.name.invalid">
+            <small *ngIf="myForm.email.errors?.required" id="emailHelp" class="form-text text-danger">Name is required</small>
+        </div>
+      </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      <div *ngIf="myForm.password.touched && myForm.password.invalid">
+        <small *ngIf="myForm.password.errors?.required" id="emailHelp" class="form-text text-danger">password is required</small>
+        <small *ngIf="myForm.password.errors?.minlength" id="emailHelp" class="form-text text-danger">Pasward must of minimum 8 character</small>
+      </div>
+    </div>
+    
+    <input [disabled]="form.invalid"  type="submit" class="btn btn-primary" value="Signup">
+    <input routerLink="/" style="margin-left: 15px;"  type="submit" class="btn btn-success" value="Login">
+    <div class="form-control alert alert-danger" *ngIf="error==true" >Email already exist</div>
+    <div class="form-control alert alert-success" *ngIf="create==true" >Account successfully created</div>
+  </form>
+
+
+</div>
+</div>
